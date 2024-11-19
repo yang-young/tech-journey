@@ -1,0 +1,2 @@
+# tech-journey
+Technical notes
