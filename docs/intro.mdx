@@ -1,0 +1,93 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+# Introduction
+
+First of all, welcome to the website!!!
+
+
+This is my technical note, It's powered by [Docusaurus](https://docusaurus.io/), The documentation repository can be found [here](https://github.com/yang-young/tech-journey).
+
+## 拉取代码
+
+```sh
+# 将远程仓库复制到本地
+git clone https://github.com/yang-young/tech-journey.git
+# 从仓库拉去更新
+git pull https://github.com/yang-young/tech-journey.git
+```
+
+## 使用Docker部署该项目
+
+<Tabs>
+  <TabItem value="local" label="Local">
+
+  ```bash
+    # 本地环境
+    docker build --target dev -t mynote:latest .
+    docker run -d -v /Users/mac/Documents/tech-journey:/opt/docusaurus mynote:latest
+  ```
+
+  </TabItem>
+  <TabItem value="dev" label="Dev">
+  
+  ```bash
+    # 开发环境
+    docker build --target dev -t mynote:latest .
+    docker run  --rm -d -v /root/notebook/tech-journey:/opt/docusaurus mynote:latest
+  ```
+  
+  </TabItem>
+  <TabItem value="prod" label="Prod">
+  
+  ```bash
+    # 生产环境
+    docker build -t mynote:latest .
+    docker run --rm -d mynote:latest
+  ```
+  
+  </TabItem>
+</Tabs>
+
+
+如果要将容器内端口映射到主机，请使用请映射端口，例如：
+
+```bash
+# docker run --rm -d -p 3000:3000 <tag>
+docker run --rm -d -p 3000:3000 mynote:latest
+```
+
+----
+
+如果你要初始化一个自己的项目
+
+[Docusaurus中文文档](https://www.docusaurus.cn/docs)
+
+关键命令：
+
+```sh
+npx create-docusaurus@latest tech-journey classic
+```
+
+代码块高亮设置，可以参考：  
+[技术笔记](https://imroc.cc/note/docusaurus/codeblock)   
+[docusaurus 官方文档](https://docusaurus.io/zh-CN/docs/next/markdown-features/code-blocks)   
+[prism代码高亮支持语言](https://prismjs.com/#supported-languages)
+
+页面右边目录显示的级别设置，参考：
+[docusaurus 官方文档](https://docusaurus.io/zh-CN/docs/markdown-features/toc)
+```js
+export default {
+  themeConfig: {
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
+    },
+  },
+};
+```

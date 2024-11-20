@@ -1,42 +1,51 @@
-# tech-journey
-Technical notes
+# My Technical Note
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This is my technical note, It's powered by [Docusaurus](https://docusaurus.io/), The documentation website can be found [here](https://img.carrothub.xyz/docs/intro).
 
-### Installation
+## 拉取代码
 
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
+```bash
+# 将远程仓库复制到本地
+git clone https://github.com/yang-young/tech-journey.git
+# 从仓库拉去更新
+git pull https://github.com/yang-young/tech-journey.git
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## 使用Docker部署该项目
 
-### Build
+```bash
+# 本地环境
+docker build --target dev -t mynote:latest .
+docker run -d -v /Users/mac/Documents/tech-journey:/opt/docusaurus mynote:latest
 
-```
-$ yarn build
-```
+# 开发环境
+docker build --target dev -t mynote:latest .
+docker run  --rm -d -v /root/notebook/tech-journey:/opt/docusaurus mynote:latest
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+# 生产环境
+docker build -t mynote:latest .
+docker run --rm -d mynote:latest
 ```
 
-Not using SSH:
+如果要将容器内端口映射到主机，请使用请映射端口，例如：
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+```bash
+# docker run --rm -d -p 3000:3000 <tag>
+docker run --rm -d -p 3000:3000 mynote:latest
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+----
+
+如果你要初始化一个自己的项目
+
+[Docusaurus中文文档](https://www.docusaurus.cn/docs)
+
+关键命令：
+
+```sh
+npx create-docusaurus@latest tech-journey classic
+```
+
+## 参考链接：
+
+[实例说明如何使用Docusaurus](https://blog.csdn.net/weixin_44026962/article/details/135520958)
