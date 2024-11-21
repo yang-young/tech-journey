@@ -1,4 +1,4 @@
-# MySQL简易教程
+# MySQL 基础教程
 
 ## MySQL安装
 
