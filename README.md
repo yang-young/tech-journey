@@ -18,6 +18,8 @@ git pull https://github.com/yang-young/tech-journey.git
 docker build --target dev -t mynote:latest .
 docker run -d -v /Users/mac/Documents/tech-journey:/opt/docusaurus mynote:latest
 
+npm install && npm run start -- --host 0.0.0.0
+
 # 开发环境
 docker build --target dev -t mynote:latest .
 docker run  --rm -d -v /root/notebook/tech-journey:/opt/docusaurus mynote:latest

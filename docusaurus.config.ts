@@ -87,6 +87,7 @@ const config: Config = {
           label: 'Note',
         },
         //{to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/docs/90collection/', label: 'Collection', position: 'left'},
         {
           href: 'https://github.com/yang-young/tech-journey',
           label: 'GitHub',
