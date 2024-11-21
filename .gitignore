@@ -21,3 +21,5 @@ yarn-error.log*
 
 # private
 /docs/private
+# temp
+/docs/temp 
