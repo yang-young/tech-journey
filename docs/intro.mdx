@@ -43,7 +43,7 @@ git pull https://github.com/yang-young/tech-journey.git
   
   ```bash
     # 生产环境
-    docker build -t mynote:latest .
+    docker build --target serve -t mynote:latest .
     docker run --rm -d mynote:latest
   ```
   
